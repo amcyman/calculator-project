@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zuri Calculator Project FED </title>
+    <link rel="stylesheet" href="./calc_project.css">
+</head>
+<body>
+    <div class="calculator">
+        
+        <table border="0px">
+            <tr id="row">
+                <td colspan="4" class="output"><input type="text" class="input" id="display" placeholder="0" maxlength="9" disabled /></td>
+                        
+            </tr>
+            
+            <tr class="row" id="row1">
+                <td><button class="button" onclick="appendValue('7')">7</button></td>
+                <td><button class="button" onclick="appendValue('8')">8</button></td>
+                <td><button class="button" onclick="appendValue('9')">9</button></td>
+                <td><button class="button" onclick="appendValue('/')">&divide;</button></td>
+            </tr>
+            <tr class="row" id="row2">
+                <td><button class="button" onclick="appendValue('4')">4</button></td>
+                <td><button class="button" onclick="appendValue('5')">5</button></td>
+                <td><button class="button" onclick="appendValue('6')">6</button></td>
+                <td><button class="button" onclick="appendValue('*')">x</button></td>
+            </tr>
+            <tr class="row" id="row3">
+                <td><button class="button" onclick="appendValue('1')">1</button></td>
+                <td><button class="button" onclick="appendValue('2')">2</button></td>
+                <td><button class="button" onclick="appendValue('3')">3</button></td>
+                <td><button class="button" onclick="appendValue('-')">-</button></td>
+            </tr>
+            <tr class="row" id="row4">
+                <td><button class="button" onclick="appendValue('0')">0</button></td>
+                <td><button class="button" onclick="appendValue('.')">.</button></td>
+                <td><button class="button" onclick="appendValue('+')">+</button></td>
+                <td><button class="button" onclick="calculate()" id="calc_button">=</button></td>
+            </tr>
+  
+            
+        
+        
+    </div>
+
+    <!-- <div class="calculator">
+
+
+        <input type="text" class="input" id="display" placeholder="0" disabled />
+        
+
+
+        <div class="">
+            <button class="button" onclick="appendValue('7')">7</button>
+            <button class="button" onclick="appendValue('8')">8</button>
+            <button class="button" onclick="appendValue('9')">9</button>
+            <button class="button" onclick="appendValue('+')">+</button>
+        </div>
+        <div class="">
+            <button class="button" onclick="appendValue('4')">4</button>
+            <button class="button" onclick="appendValue('5')">5</button>
+            <button class="button" onclick="appendValue('6')">6</button>
+            <button class="button" onclick="appendValue('-')">-</button>
+        </div>
+        <div class="">
+            <button class="button" onclick="appendValue('1')">1</button>
+            <button class="button" onclick="appendValue('2')">2</button>
+            <button class="button" onclick="appendValue('3')">3</button>
+            <button class="button" onclick="appendValue('*')">*</button>
+        </div>
+        <div class="">
+            <button class="button" onclick="appendValue('0')">0</button>
+            <button class="button" onclick="appendValue('.')">.</button>
+            <button class="button" onclick="clearDisplay('C')">C</button>
+            <button class="button" onclick="appendValue('/')">/</button>
+        </div>
+        <button class="button" onclick="calculate()">= </button>
+
+        <button class="button" onclick="clearDisplay('C')">C</button>
+        <button class="button" onclick="backSpace()">←</button>
+
+    </div> -->
+
+    <!--  JAVASCRIPT  -->
+
+    <script>
+        <!-- alert('Hello world') -->
+        // Function to APPEND values
+        function appendValue(value) {
+            document.getElementById('display').value += value;
+        }
+        
+        // Function (BACKSPACE) to delete last value from the Display element 
+        function backSpace() {
+            let result = document.getElementById('display');
+            result.value = result.value.slice(0, -1);
+            
+        }
+        
+        // Function to clear the entire Display
+        function clearDisplay() {
+            document.getElementById('display').value = '';
+        }
+
+
+        //function calculate() { document.getElementById('display').value = eval(document.getElementById('display').value);}
+
+        //OR
+        function calculate() {
+            let expression = document.getElementById('display').value;
+            //<!-- console.log(expression); -->
+            let result = eval(expression);
+            document.getElementById('display').value = result;
+        }
+    </script>
+</body>
+</html>
